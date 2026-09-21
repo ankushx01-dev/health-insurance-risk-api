@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Estimate your health insurance risk profile with a machine-learning powered assessment." />
+    <title>Coverwise | Insurance risk assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Coverwise home">
+          <span class="brand-mark">+</span>
+          <span>coverwise</span>
+        </a>
+        <div class="status-pill"><span class="status-dot"></span> Model online <span class="version">v1.0</span></div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="eyebrow"><span></span> Personalised risk intelligence</div>
+          <h1>A clearer view of your<br /><em>insurance outlook.</em></h1>
+          <p class="hero-copy">Answer a few simple questions. Our predictive model turns your health and lifestyle profile into an easy-to-understand insurance risk estimate.</p>
+          <div class="hero-stats">
+            <div><strong>7</strong><span>profile signals</span></div>
+            <div><strong>3</strong><span>risk categories</span></div>
+            <div><strong>01</strong><span>private assessment</span></div>
+          </div>
+        </section>
+
+        <section class="workspace">
+          <div class="form-panel card">
+            <div class="panel-heading">
+              <div>
+                <span class="step-label">STEP 01 / PROFILE</span>
+                <h2>Tell us about yourself</h2>
+              </div>
+              <span class="shield-icon">✦</span>
+            </div>
+            <form id="prediction-form">
+              <div class="field-row">
+                <label class="field">
+                  <span>Age <small>years</small></span>
+                  <input name="age" type="number" min="1" max="119" placeholder="28" required />
+                </label>
+                <label class="field">
+                  <span>Annual income <small>₹ lakh / year</small></span>
+                  <input name="income_lpa" type="number" min="0.1" step="0.1" placeholder="8.5" required />
+                </label>
+              </div>
+              <div class="field-row">
+                <label class="field">
+                  <span>Weight <small>kg</small></span>
+                  <input id="weight" name="weight" type="number" min="1" max="199" step="0.1" placeholder="68" required />
+                </label>
+                <label class="field">
+                  <span>Height <small>metres</small></span>
+                  <input id="height" name="height" type="number" min="0.1" max="2.49" step="0.01" placeholder="1.72" required />
+                </label>
+              </div>
+              <div id="bmi-preview" class="bmi-preview" aria-live="polite">Your BMI will appear here</div>
+              <label class="field full-width">
+                <span>Current city</span>
+                <input name="city" list="cities" placeholder="Start typing your city..." required />
+                <datalist id="cities">
+                  <option>Mumbai</option><option>Delhi</option><option>Bangalore</option><option>Chennai</option>
+                  <option>Kolkata</option><option>Hyderabad</option><option>Pune</option><option>Jaipur</option>
+                  <option>Chandigarh</option><option>Indore</option><option>Lucknow</option><option>Ahmedabad</option>
+                  <option>Noida</option><option>Surat</option><option>Nagpur</option><option>Other</option>
+                </datalist>
+              </label>
+              <div class="field-row">
+                <label class="field">
+                  <span>Occupation</span>
+                  <select name="occupation" required>
+                    <option value="" disabled selected>Select one</option>
+                    <option value="private_job">Private job</option>
+                    <option value="government_job">Government job</option>
+                    <option value="business_owner">Business owner</option>
+                    <option value="freelancer">Freelancer</option>
+                    <option value="student">Student</option>
+                    <option value="retired">Retired</option>
+                    <option value="unemployed">Unemployed</option>
+                  </select>
+                </label>
+                <div class="field">
+                  <span>Do you smoke?</span>
+                  <div class="toggle-group">
+                    <label><input type="radio" name="smoker" value="false" checked /><span>No</span></label>
+                    <label><input type="radio" name="smoker" value="true" /><span>Yes</span></label>
+                  </div>
+                </div>
+              </div>
+              <button class="primary-button" type="submit">
+                <span>Calculate my outlook</span><span class="button-arrow">↗</span>
+              </button>
+              <p class="form-note">Your answers are used only for this estimate and are not stored.</p>
+            </form>
+          </div>
+
+          <aside id="result-panel" class="result-panel card" aria-live="polite">
+            <div class="result-empty">
+              <div class="orbital-icon"><span>✦</span></div>
+              <span class="step-label">STEP 02 / INSIGHT</span>
+              <h2>Your result<br /><em>will appear here.</em></h2>
+              <p>Complete your profile to see your predicted risk category and confidence breakdown.</p>
+              <div class="result-line"></div>
+              <div class="mini-note"><span>↗</span> Built with a machine-learning model</div>
+            </div>
+          </aside>
+        </section>
+      </main>
+      <footer><span>coverwise / health insurance intelligence</span><span>For educational purposes only</span></footer>
+    </div>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
